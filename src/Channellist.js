@@ -1,9 +1,9 @@
-import { Button } from "react-bootstrap";
+import { Button, ButtonGroup } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Addchannel } from "./Addchannel";
 import { Channelcard } from "./Channelcard";
-
+//collecting data from  API and desplaying in Card
 export function Channellist() {
   const [channels, setchannels] = useState([]);
   const URL = "https://61c412fdf1af4a0017d99285.mockapi.io/YTchannel";
@@ -16,10 +16,10 @@ export function Channellist() {
   const history = useHistory();
   return (
     <div className="main">
-      <h1>
+      <h3>
         Welcome to the best collection of usefull youtube channel to develop
         your programming skills
-      </h1>
+      </h3>
       <br />
       <h5>Help others by adding your favorite youtube channel</h5>
       <Addchannel />

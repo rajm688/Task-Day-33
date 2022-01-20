@@ -8,3 +8,11 @@
 .inputform {
   display: flex;
 }
+.editinputform{
+  margin: auto;
+  padding: 20px;
+  width:  80%;
+  display: flex;
+  flex-direction: column;
+  gap:10px
+}

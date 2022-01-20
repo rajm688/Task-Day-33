@@ -1,5 +1,5 @@
-import { Button, Card } from "react-bootstrap";
-
+import { Button, Card, ButtonGroup } from "react-bootstrap";
+//displaying in card 
 export function Channelcard({
   channel,
   avgview,
@@ -24,11 +24,13 @@ export function Channelcard({
           {avgview}
         </Card.Text>
         <Card.Text>{description}</Card.Text>
+        <ButtonGroup>
         <Button href={url} target="_blank" variant="primary">
           Explore
         </Button>
         {editcnl}
         {deletebtn}
+        </ButtonGroup>
       </Card.Body>
     </Card>
   );

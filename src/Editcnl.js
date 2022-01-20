@@ -3,11 +3,12 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useEffect } from "react";
-
+//editng Channnels 
 export function Editcnl() {
   const { id } = useParams();
-  const [channels, setchannels] = useState([]);
+  const [channels, setchannels] = useState(null);
   const getchannels = () => {
+    // getting values to populate textfields to enter value
     fetch(`https://61c412fdf1af4a0017d99285.mockapi.io/YTchannel/${id}`, {
       method: "GET",
     })
@@ -17,6 +18,7 @@ export function Editcnl() {
   useEffect(getchannels, [id, channels]);
   return channels ? <Updateedit channels={channels} /> : "";
 }
+//seperate component for getting input from user
 function Updateedit({ channels }) {
   const [channel, setChannel] = useState(channels.channel);
   const [avgview, setAvgview] = useState(channels.avgview);
@@ -26,25 +28,30 @@ function Updateedit({ channels }) {
   const [url, setUrl] = useState(channels.url);
   const history = useHistory();
   return (
-    <div className="inputform">
+    <div className="editinputform">
+      <h1>Edit Channel details only if necessery</h1>
+     <Form.Label>Channel Name</Form.Label>
       <Form.Control
         value={channel}
         onChange={(e) => setChannel(e.target.value)}
         type="text"
         placeholder="Enter Channel Name"
       />
+      <Form.Label>Average view</Form.Label>
       <Form.Control
         value={avgview}
         onChange={(e) => setAvgview(e.target.value)}
         type="text"
         placeholder="Average view count"
       />
+      <Form.Label>Description</Form.Label>
       <Form.Control
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         type="text"
         placeholder="Enter Channel Description"
       />
+      <Form.Label>Subscribers</Form.Label>
       <Form.Control
         value={sub}
         onChange={(e) => setSub(e.target.value)}
@@ -57,6 +64,7 @@ function Updateedit({ channels }) {
         type="text"
         placeholder="Enter Channel poster"
       />
+      <Form.Label>Channel URL</Form.Label>
       <Form.Control
         value={url}
         onChange={(e) => setUrl(e.target.value)}
